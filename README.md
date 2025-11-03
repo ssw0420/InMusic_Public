@@ -7,6 +7,7 @@
 플레이 및 기능 설명의 경우 Youtube 영상에서 확인하실 수 있습니다.<br/>
 해당 프로젝트는 창업 동아리 Insight 내 게임 개발 인원과 학습 목적으로 진행된 프로젝트입니다.<br/>
 학습 목적에 따라 3단계로 나누어, 싱글 플레이, 외부 API 및 데이터베이스 연동, 멀티 플레이로 구분하여 개발하였습니다.<br/>
+<br/>
 
 <img src="./Images/MainImage_1.png" width=100%>
 <img src="./Images/MainImage_2.png" width=100%>
@@ -20,7 +21,6 @@
 1. 싱글 플레이: 2024.10 ~ 2025.02
 2. DB, Steam 연동: 2025.03 ~ 2025.05
 3. 멀티 플레이: 2025.07 ~ 2025.09
-<br/>
 
 ### 개발 인원 및 역할
 
@@ -46,7 +46,9 @@
 <br/>
 
 ### 프로젝트 구성 (샘플 코드 첨부)
+<br/>
 
+```
 📦InMusic_Scripts_Sample
  ┣ 📂DB
  ┃ ┣ 📜DBService.cs
@@ -106,7 +108,9 @@
  ┗ 📂Steam
  ┃ ┣ 📜SteamAuthService.cs
  ┃ ┗ 📜SteamManager.cs
+```
 
+<br/><br/>
 
 ### 사용 음원
 Cartoon, Jéja - On & On (feat. Daniel Levi) <br/>
