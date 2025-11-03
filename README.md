@@ -8,8 +8,8 @@
 해당 프로젝트는 창업 동아리 Insight 내 게임 개발 인원과 학습 목적으로 진행된 프로젝트입니다.
 학습 목적에 따라 3단계로 나누어, 싱글 플레이, 외부 API 및 데이터베이스 연동, 멀티 플레이로 구분하여 개발하였습니다.
 
-<img src="./Images/MainImage_1.png" width=100&>
-<img src="./Images/MainImage_2.png" width=100&>
+<img src="./Images/MainImage_1.png" width=100%>
+<img src="./Images/MainImage_2.png" width=100%>
 
 ### 플레이 및 기능 설명 영상
 
