@@ -10,7 +10,7 @@ $conn = new mysqli($servername, $username, $password, $dbName);
 if ($conn->connect_error) {
     echo json_encode([
         "success" => false,
-        "message" => "DB connection failed: " . $conn->connect_error
+        "message" => "DB connection failed"
     ]);
     exit();
 }
@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 if (!$result) {
     echo json_encode([
         "success" => false,
-        "message" => "Query error: " . $conn->error
+        "message" => "Query error"
     ]);
     $conn->close();
     exit();

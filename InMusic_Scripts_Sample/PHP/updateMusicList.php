@@ -7,31 +7,49 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName     = "inmusic";
 
-// 유니티에서 POST 받은 값
-$musicId      = $_POST["musicId"];      // 예: "Klaxon" (또는 유니크한 값)
-$musicName    = $_POST["musicName"];    // 예: "Klaxon (Title)"
-$musicArtist  = $_POST["musicArtist"];  // 예: "Some Artist"
-
-$conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
-if ($conn->connect_error) {
-    $response = [
+// 입력 검증
+if (!isset($_POST["musicId"]) || !isset($_POST["musicName"]) || !isset($_POST["musicArtist"]) ||
+    empty($_POST["musicId"]) || empty($_POST["musicName"])) {
+    echo json_encode([
         "success" => false,
-        "message" => "DB Connection failed: " . $conn->connect_error
-    ];
-    echo json_encode($response);
+        "message" => "Required parameters missing"
+    ]);
     exit();
 }
 
-// ON DUPLICATE KEY UPDATE 구문: 이미 있으면 UPDATE, 없으면 INSERT
-$sql = "
-INSERT INTO Music (musicId, musicName, musicArtist)
-VALUES ('$musicId', '$musicName', '$musicArtist')
-ON DUPLICATE KEY UPDATE
-  musicName='$musicName',
-  musicArtist='$musicArtist'
-";
+$musicId      = $_POST["musicId"];
+$musicName    = $_POST["musicName"];
+$musicArtist  = $_POST["musicArtist"];
 
-if ($conn->query($sql) === TRUE) {
+$conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
+if ($conn->connect_error) {
+    echo json_encode([
+        "success" => false,
+        "message" => "DB Connection failed"
+    ]);
+    exit();
+}
+
+// Prepared Statement로 ON DUPLICATE KEY UPDATE 구문 사용
+$stmt = $conn->prepare(
+    "INSERT INTO Music (musicId, musicName, musicArtist) VALUES (?, ?, ?) 
+     ON DUPLICATE KEY UPDATE musicName = ?, musicArtist = ?"
+);
+
+if (!$stmt) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Query preparation failed"
+    ]);
+    $conn->close();
+    exit();
+}
+
+$stmt->bind_param("sssss", $musicId, $musicName, $musicArtist, $musicName, $musicArtist);
+$result = $stmt->execute();
+$stmt->close();
+
+if ($result === TRUE) {
     $response = [
         "success" => true,
         "message" => "Music upsert success"
@@ -39,7 +57,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     $response = [
         "success" => false,
-        "message" => "Error: " . $conn->error
+        "message" => "Query execution failed"
     ];
 }
 
