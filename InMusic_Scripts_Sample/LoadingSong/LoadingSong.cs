@@ -172,7 +172,6 @@ public class LoadingSong : MonoBehaviour
         // PlayManager가 초기화되면 메서드 호출
         //PlayManager.Instance.StartGame(songTitle, artist);
     }
-    //>
 
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)

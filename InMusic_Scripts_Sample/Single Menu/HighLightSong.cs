@@ -111,58 +111,6 @@ namespace SongList{
             else {
                 Debug.LogWarning("[HighlightSong] SongListController not available.");
             }
-
-
-
-            // // 플레이 기록 불러오기
-            // // 고유 키 생성 (예: "Heya_ArtistA")
-            // string uniqueKey = $"{songInfo.Title}_{songInfo.Artist}";
-
-            // SavePlayData spd = SavePlayData.Instance;
-            // if (spd != null) {
-            //     ScoreData record = spd.GetSongScoreByKey(uniqueKey);
-            //     if (record != null) {
-            //         // 최고 점수, 최대 콤보, 정확도, 랭크를 업데이트
-            //         if (_songHighestScoreText != null)
-            //             _songHighestScoreText.text = $"{record.score}";
-            //         if (_songMaxComboText != null)
-            //             _songMaxComboText.text = $"{record.maxCombo}";
-            //         if (_songHighestAccuracyText != null)
-            //             _songHighestAccuracyText.text = $"{record.accuracy:F2}%";
-            //         if (_songHighestRankText != null)
-            //             _songHighestRankText.text = $"{CalculateRank(record.score, record.accuracy)}";
-            //     }
-            //     else {
-            //         // 기록이 없는 경우 기본값 표시
-            //         if (_songHighestScoreText != null)
-            //             _songHighestScoreText.text = "-";
-            //         if (_songMaxComboText != null)
-            //             _songMaxComboText.text = "-";
-            //         if (_songHighestAccuracyText != null)
-            //             _songHighestAccuracyText.text = "-";
-            //         if (_songHighestRankText != null)
-            //             _songHighestRankText.text = "-";
-            //     }
-            // }
-            // else {
-            //     Debug.LogWarning("[HighlightSong] SavePlayData 객체를 찾지 못했습니다.");
-            // }
-
-            // // TODO: 버튼 클릭 부분 리팩토링 필요 (버튼 관련 코드는 다른 클래스로 분리하여야 함)
-            // // 버튼 리스너 세팅
-            // if (startButton != null) {
-            //     startButton.onClick.RemoveAllListeners();
-            //     string playSceneName = "YMH";
-            //     startButton.onClick.AddListener(() =>
-            //     {
-            //         // 1. 효과음 재생
-            //         SoundManager.Instance.PlaySFX(SFXType.PlayStart);
-            //         // 2. 씬 로드
-            //         loadingSongObj = LoadingSong.Instance;
-            //         loadingSongObj.LoadPlay(playSceneName, songInfo.Title, _detailArtistText.text, _detailImage.sprite);
-            //     });
-
-            // }
         }
 
         public void StartButtonAction()

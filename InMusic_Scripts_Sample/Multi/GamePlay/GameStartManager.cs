@@ -96,30 +96,4 @@ public class GameStartManager : NetworkBehaviour
             Debug.LogWarning("[GameStartManager] Game start denied - not SharedModeMasterClient");
         }
     }
-
-    /// <summary>
-    /// 세션 프로퍼티 업데이트 (씬 로딩 전에 호출)
-    /// </summary>
-    // private void UpdateSessionProperties(string selectedSongName, string selectedSongArtist)
-    // {
-    //     Debug.Log($"[GameStartManager] Updating session properties BEFORE scene loading - Song: {selectedSongName}");
-        
-    //     // MultiRoomManager.Instance.SetSongInfo(selectedSongName, selectedSongArtist);
-    //     // try
-    //     // {
-    //     //     Dictionary<string, SessionProperty> newProps = new()
-    //     //     {
-    //     //         { "songName", selectedSongName },
-    //     //         { "gameStarted", true }
-    //     //     };
-
-    //     //     NetworkManager.runnerInstance.SessionInfo.UpdateCustomProperties(newProps);
-
-    //     //     Debug.Log($"[GameStartManager] Session properties updated successfully - gameStarted: true, songName: {selectedSongName}");
-    //     // }
-    //     // catch (System.Exception ex)
-    //     // {
-    //     //     Debug.LogError($"[GameStartManager] Failed to update session properties: {ex.Message}");
-    //     // }
-    // }
 }

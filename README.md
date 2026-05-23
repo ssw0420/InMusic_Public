@@ -7,6 +7,7 @@
 플레이 및 기능 설명의 경우 Youtube 영상에서 확인하실 수 있습니다.<br/>
 해당 프로젝트는 창업 동아리 Insight 내 게임 개발 인원과 학습 목적으로 진행된 프로젝트입니다.<br/>
 학습 목적에 따라 3단계로 나누어, 싱글 플레이, 외부 API 및 데이터베이스 연동, 멀티 플레이로 구분하여 개발하였습니다.<br/>
+별도의 배포 없이 팀 내 테스트 및 개발 환경으로 코드가 구성되어 있습니다.<br/>
 <br/>
 
 <img src="./Images/MainImage_1.png" width=100%>
@@ -80,9 +81,6 @@
  ┃ ┃ ┣ 📜PlayerPrefab.cs
  ┃ ┃ ┗ 📜PlayerStateController.cs
  ┃ ┣ 📂UI
- ┃ ┃ ┣ 📜PlayerContextMenu.cs
- ┃ ┃ ┣ 📜PlayerMenuManager.cs
- ┃ ┃ ┣ 📜PlayerSlotClickHandler.cs
  ┃ ┃ ┣ 📜PlayerSlotUI.cs
  ┃ ┃ ┗ 📜RoomNameUI.cs
  ┃ ┣ 📜MultiRoomManager.cs
@@ -111,6 +109,23 @@
 ```
 
 <br/><br/>
+
+### 향후 개선 사항
+
+#### 코드 품질
+- LoadingSong/MultiLoadingSong, SongListController/MultiSongListController 베이스 클래스 추출 필요 (중복 제거)
+- 매니저 싱글톤 패턴 일관성 통일 (Managers/Singleton<T> 베이스로 통합)
+- FindFirstObjectByType 빈번 호출 부분 캐싱 적용
+
+#### 보안/권한
+- RPC_StartGame의 RpcSources를 StateAuthority로 제한
+- PHP Steam Auth Ticket 서버 측 검증 추가
+- DB 자격증명 환경 변수 분리
+
+#### 성능
+- DBService HTTP 호출 결과 캐싱 (곡 목록 등 자주 안 바뀌는 데이터)
+
+<br/>
 
 ### 사용 음원
 Cartoon, Jéja - On & On (feat. Daniel Levi) <br/>

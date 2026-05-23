@@ -1,4 +1,5 @@
 <?php
+// 학습 환경인 XAMPP 로컬 DB 기준으로 개발
 header("Content-Type: application/json; charset=UTF-8");
 
 $host = "localhost";

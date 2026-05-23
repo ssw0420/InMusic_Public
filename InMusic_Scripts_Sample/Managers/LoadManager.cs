@@ -21,7 +21,6 @@ namespace SongList {
         [SerializeField] private bool isLoaded = false;
         [SerializeField] private int totalSongsCount = 0;
 
-        //ddd
 
         public List<SongInfo> Songs { get; private set; }
         protected override void Awake() {
